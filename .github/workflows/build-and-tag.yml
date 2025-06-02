@@ -2,6 +2,13 @@ name: Build and Tag
 
 on: 
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore: 
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/**'
 jobs:
   test:
     runs-on: ubuntu-latest
