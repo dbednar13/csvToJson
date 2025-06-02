@@ -1,4 +1,4 @@
-name: Build and Tag
+name: PR Quality Gate
 
 on: 
   workflow_dispatch:
