@@ -9,6 +9,9 @@ on:
       - 'package.json'
       - 'pnpm-lock.yaml'
       - '.github/**'
+permissions:
+  contents: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
