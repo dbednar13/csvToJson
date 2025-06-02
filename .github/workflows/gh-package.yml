@@ -31,6 +31,6 @@ jobs:
         run: pnpm run build
 
       - name: Publish to GitHub Package Registry
-        run: pnpm publish --no-git-checks --registry=https://npm.pkg.github.com/
+        run: pnpm publish --no-git-checks --registry=https://npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
