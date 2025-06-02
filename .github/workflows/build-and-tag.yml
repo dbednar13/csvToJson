@@ -76,9 +76,6 @@ jobs:
         with:
           version: 8
 
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Bump version
         run: pnpm version patch
 
