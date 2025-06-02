@@ -27,6 +27,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Update my-file.json description
+        uses: restackio/update-json-file-action@2.1
+        with:
+          file: package.json
+          fields: "{'name': '@dbednar13/convert-csv-to-json2'}"
+
       - name: Build
         run: pnpm run build
 
