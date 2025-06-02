@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  packages: write
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
