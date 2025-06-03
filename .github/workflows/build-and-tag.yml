@@ -84,4 +84,4 @@ jobs:
         with:
           token: '${{ secrets.GITHUB_TOKEN }}'
       - run: pnpm version patch
-      - run: git push
+      - run: git push --force
