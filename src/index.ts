@@ -265,5 +265,4 @@ export class ConvertCsvToJson {
   }
 }
 
-const converter = new ConvertCsvToJson();
-export default converter;
+export default new ConvertCsvToJson();

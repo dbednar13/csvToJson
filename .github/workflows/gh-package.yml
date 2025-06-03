@@ -1,14 +1,20 @@
 name: Publish to GitHub Package
 
-on:
-  
+on:  
   workflow_dispatch:
+  workflow_run:
+      workflows: ['Build and Tag']
+      types: 
+        - completed
+      branches:
+        - 'main'
 
 permissions:
   packages: write
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -40,3 +46,9 @@ jobs:
         run: pnpm publish --no-git-checks --registry=https://npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  skip:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion != 'success' }}
+    steps:
+      - name: Skip publishing
+        run: echo "Skipping publish step as the previous workflow did not complete successfully."

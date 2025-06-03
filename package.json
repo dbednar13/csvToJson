@@ -2,6 +2,7 @@
   "name": "convert-csv-to-json2",
   "version": "1.0.1",
   "description": "Convert CSV to JSON",
+  "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
